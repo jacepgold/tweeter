@@ -18,26 +18,27 @@ class Home extends Component {
 
   render() {
     const { posts } = this.state;
-    
 
-    
     return (
-      <Card.Group>
-        <Card>
-          <Card.Content>
-            <Image floated='right' size='mini' src='https://react.semantic-ui.com/assets/images/avatar/large/molly.png' />
-            <Card.Header>
-              Name - {  }
-            </Card.Header>
-            <Card.Meta>
-              Date - {}
-            </Card.Meta>
-            <Card.Description>
-              Text - {this.state.posts.content}
-            </Card.Description>
-          </Card.Content>
-        </Card>
-      </Card.Group>
+      <Segment>
+        <Header as="h1">News Feed</Header>
+        <Card.Group>
+          <Card>
+            <Card.Content>
+              <Image floated='right' size='mini' src='https://react.semantic-ui.com/assets/images/avatar/large/molly.png' />
+              <Card.Header>
+                Name - {  }
+              </Card.Header>
+              <Card.Meta>
+                Date - {}
+              </Card.Meta>
+              <Card.Description>
+                Text - {this.state.posts.content}
+              </Card.Description>
+            </Card.Content>
+          </Card>
+        </Card.Group>
+      </Segment>
     );
   }
 }
