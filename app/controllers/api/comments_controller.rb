@@ -1,8 +1,9 @@
 class Api::CommentsController < ApplicationController
   before_action :set_comments, only: [:show, :update, :destroy]
+  before_action :set_post
 
   def index
-    render json: Comment.all
+    render json: @posts.comments.all
   end
 
   def show
@@ -10,7 +11,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @comment = @posts.comments.new(comment_params)
     if @comment.save
       render json: @comment, status: :created
     else
@@ -31,6 +32,11 @@ class Api::CommentsController < ApplicationController
   end
 
   private
+
+  def set_post 
+    @posts = Post.find(params[:post_id])
+  end 
+
 
   def set_comments
     @comments = Comment.find(params[:id])
