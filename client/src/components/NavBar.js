@@ -3,9 +3,10 @@ import { Menu, Dropdown } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
+import Login from './Login'
 
 class NavBar extends Component {
-  
+
   rightNavs = () => {
     const { user, dispatch, history } = this.props;
 
@@ -17,11 +18,19 @@ class NavBar extends Component {
               <Dropdown.Item><Link to="/profile/edit">Edit Profile</Link></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <Link to='/newtweet'>
+            <Menu.Item name='Newtweet' />
+          </Link>
+          <Link to='/mytweets'>
+          <Menu.Item name='my tweets' />
+          </Link>
           <Menu.Item
             name='Logout'
             onClick={() => dispatch(handleLogout(history))}
           />
+
         </Menu.Menu>
+
       );
     }
     return (
@@ -29,7 +38,7 @@ class NavBar extends Component {
         <Link to='/register'>
           <Menu.Item name='Register' />
         </Link>
-        
+
         <Link to='/login'>
           <Menu.Item name='Login' />
         </Link>
