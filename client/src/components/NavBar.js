@@ -15,7 +15,7 @@ class NavBar extends Component {
         <Menu.Menu position='right'>
           <Dropdown text='My Profile' pointing className='link item'>
             <Dropdown.Menu>
-              <Dropdown.Item><Link to="/profile/edit">Edit Profile</Link></Dropdown.Item>
+              <Dropdown.Item><Link to={`/EditProfile/${user.id}`}>Edit Profile</Link></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Link to='/newtweet'>
@@ -78,8 +78,18 @@ class NavBar extends Component {
 
   render() {
     return (
-      this.leftNavs()
-    )
+      <div>
+        <Menu pointing secondary>
+          <Link to='/'>
+            <Menu.Item name='tweeter' />
+          </Link>
+          <Link to='/profile'>
+            <Menu.Item name='Your profile' />
+          </Link>
+          { this.rightNavs() }
+        </Menu>
+      </div>
+    );
   }
 }
 
