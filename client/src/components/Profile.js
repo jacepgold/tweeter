@@ -7,6 +7,11 @@ class Profile extends Component {
     return (
       <Segment>
         <Header as='h1' textAlign='center'>Profile Component</Header>
+        <Segment>
+          <Header as="h2">Your Profile Image</Header>
+          <Header as="h2">Your Name</Header>
+          <Header as="h2">Display Name</Header>
+        </Segment>
         <Link to="./profile/edit">
           <Button postive>Edit Profile</Button>
         </Link>
