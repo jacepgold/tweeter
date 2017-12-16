@@ -27,7 +27,7 @@ class NavBar extends Component {
           <Link to='/mytweets'>
           <Menu.Item name='My Tweets' />
           </Link>
-          <Dropdown text='My Profile' pointing className='link item'>
+          <Dropdown text='Settings' pointing className='link item'>
             <Dropdown.Menu>
               <Dropdown.Item><Link to={'/profile'}>My Profile</Link></Dropdown.Item>
               <Dropdown.Item><Link to={`/EditProfile/${user.id}`}>Edit Profile</Link></Dropdown.Item>
