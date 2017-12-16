@@ -37,20 +37,40 @@ class NavBar extends Component {
     );
   }
 
+  leftNavs = () => {
+    const { user } = this.props;
+    if (user.id) {
+      return(
+        <div>
+          <Menu pointing secondary>
+            <Link to='/'>
+              <Menu.Item name='tweeter' />
+            </Link>
+            <Link to='/profile'>
+              <Menu.Item name='Account name here' />
+            </Link>
+            {this.rightNavs()}
+          </Menu>
+        </div>
+      );
+    } else {
+      return(
+        <div>
+          <Menu pointing secondary>
+            <Link to='/'>
+              <Menu.Item name='tweeter' />
+            </Link>
+            {this.rightNavs()}
+          </Menu>
+        </div>
+      );
+    }
+  }
+
   render() {
     return (
-      <div>
-        <Menu pointing secondary>
-          <Link to='/'>
-            <Menu.Item name='tweeter' />
-          </Link>
-          <Link to='/profile'>
-            <Menu.Item name='Account name here' />
-          </Link>
-          { this.rightNavs() }
-        </Menu>
-      </div>
-    );
+      this.leftNavs()
+    )
   }
 }
 
