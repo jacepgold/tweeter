@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Header } from 'semantic-ui-react';
+import { postTweets } from '../actions/tweets'
 
 class Newtweet extends Component {
  // let input;
@@ -9,8 +10,9 @@ class Newtweet extends Component {
 
  handleSubmit = (e) => {
    e.preventDefault();
-
-   // this.props.dispatch({ type: 'ADD_TWEET', tweet.value })
+   const tweet = this.state.tweet
+   const user = this.props.user
+   this.props.dispatch(postTweets(user, tweet))
  }
 
  handleChange = (e) => {
@@ -30,5 +32,12 @@ render() {
 }
 }
 
+const mapStateToProps = state => {
+  return ({
+    user: state.user,
+    tweets: state.tweets
+  })
 
-export default connect()(Newtweet);
+}
+
+export default connect(mapStateToProps)(Newtweet);

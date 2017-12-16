@@ -29,8 +29,13 @@ class Home extends Component {
     const { posts } = this.state;
 
     return (
+<<<<<<< HEAD
       <Segment basic>
         <Header as="h1" textAlign='center'>Tweeter Feed</Header>
+=======
+      <Segment>
+        <Header as="h1">Tweeter Feed</Header>
+>>>>>>> 0df7272de9eb8dd3abd7312726f915437bcc2619
         <Card.Group>
           <Card>
             <Card.Content>
