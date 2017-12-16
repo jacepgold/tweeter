@@ -9,6 +9,7 @@ import Profile from './Profile'
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
+import EditProfile from './EditProfile';
 import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {

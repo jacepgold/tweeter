@@ -5,22 +5,22 @@ import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
 
 class NavBar extends Component {
+  
   rightNavs = () => {
     const { user, dispatch, history } = this.props;
 
     if (user.id) {
       return (
         <Menu.Menu position='right'>
+          <Dropdown text='My Profile' pointing className='link item'>
+            <Dropdown.Menu>
+              <Dropdown.Item><Link to="/EditProfile">Edit Profile</Link></Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
           <Menu.Item
             name='Logout'
             onClick={() => dispatch(handleLogout(history))}
           />
-          <Dropdown text='My Profile' pointing className='link item'>
-            <Dropdown.Menu>
-              <Dropdown.Item><Link to="/profile">My Profile</Link></Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-
         </Menu.Menu>
       );
     }
@@ -44,7 +44,7 @@ class NavBar extends Component {
           <Link to='/'>
             <Menu.Item name='tweeter' />
           </Link>
-          <Link to='/api/users'>
+          <Link to='/profile'>
             <Menu.Item name='Account name here' />
           </Link>
           { this.rightNavs() }
