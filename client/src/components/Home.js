@@ -19,11 +19,10 @@ class Home extends Component {
 
   showPost = () => {
     return this.state.posts.map( post =>
-      <List.Item>
+      <Card.Description>
         {post.content}
-      </List.Item>
+      </Card.Description>
     )
-
   }
 
   render() {
@@ -40,11 +39,9 @@ class Home extends Component {
                 Name - {  }
               </Card.Header>
               <Card.Meta>
-                Date - {}
+                Date - {  }
               </Card.Meta>
-              <Card.Description>
-                Text - {this.showPost()}
-              </Card.Description>
+                {this.showPost()}
             </Card.Content>
           </Card>
         </Card.Group>
