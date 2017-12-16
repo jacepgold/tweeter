@@ -1,24 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { getTweets } from '../actions/tweets'
 
-class Mytweets extends React.Component {
-  state = {myTweets: []}
+
+class MyTweets extends React.Component {
+
+  componentWillMount() {
+
+  }
 
   render() {
     return(
       <div>
 
       <h1>My Tweets</h1>
-      <ul>
-      { this.state.myTweets.map( (t,i) => {
+      { this.props.tweets.map(tweet => {
         return (
-          <li key={i}>
-          {t}
-          </li>
+          <div key={tweet.id}>
+            {tweet.content}
+          </div>
         )
-      })
-    }
-    </ul>
+      })}
+
     </div>
   )
   }
@@ -26,7 +29,7 @@ class Mytweets extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { mytweets: state.mytweets }
+  return { tweets: state.tweets, user: state.user }
 }
 
-export default connect(mapStateToProps)(Mytweets)
+export default connect(mapStateToProps)(MyTweets)
