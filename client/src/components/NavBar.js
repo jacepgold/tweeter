@@ -15,6 +15,10 @@ class NavBar extends Component {
             name='Logout'
             onClick={() => dispatch(handleLogout(history))}
           />
+          <Link to='/profile'>
+          <Menu.Item name='my profile' />
+          </Link>
+
         </Menu.Menu>
       );
     }
@@ -26,7 +30,7 @@ class NavBar extends Component {
         <Link to='/login'>
           <Menu.Item name='Login' />
         </Link>
-      </Menu.Menu>
+        </Menu.Menu>
     );
   }
 
