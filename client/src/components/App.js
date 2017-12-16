@@ -24,7 +24,7 @@ class App extends Component {
             <ProtectedRoute exact path='/profile' component={Profile} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
-            <ProtectedRoute exact path='/profile' component={Profile} />
+            <ProtectedRoute exact path='/EditProfile/:id' component={EditProfile} />
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Header, Form, Container, Image } from 'semantic-ui-react';
+import axios from 'axios';
+import { connect } from'react-redux';
 
 class EditProfile extends Component {
-    state: { email, encrypted password, }
+  state = { email: this.props.user.email }
 
   render() {
     return (
@@ -16,11 +18,10 @@ class EditProfile extends Component {
       <Container>
       <Form>
       <Form.Group widths='equal'>
-        <Form.Input label='Email address' placeholder='Email address' />
-        <Form.Input label='Password' placeholder='Password' />
+        <Form.Input label='Email address' placeholder={this.state.email} />
       </Form.Group>
         <Form.TextArea label='Bio' placeholder='Tell us more about you...' />
-        <Form.Button>Edit Profile</Form.Button>
+        <Form.Button>Save Edit Profile</Form.Button>
       </Form>
       </Container>
       </div>
@@ -28,4 +29,8 @@ class EditProfile extends Component {
   }
 }
 
-export default EditProfile;
+const mapStateToProps = state => {
+  return { user: state.user };
+};
+
+export default connect(mapStateToProps)(EditProfile);
