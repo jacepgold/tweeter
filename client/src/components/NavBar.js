@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Dropdown } from 'semantic-ui-react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
@@ -15,9 +15,11 @@ class NavBar extends Component {
             name='Logout'
             onClick={() => dispatch(handleLogout(history))}
           />
-          <Link to='/profile'>
-          <Menu.Item name='my profile' />
-          </Link>
+          <Dropdown text='My Profile' pointing className='link item'>
+            <Dropdown.Menu>
+              <Dropdown.Item><Link to="/profile">My Profile</Link></Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
 
         </Menu.Menu>
       );
@@ -27,6 +29,7 @@ class NavBar extends Component {
         <Link to='/register'>
           <Menu.Item name='Register' />
         </Link>
+        
         <Link to='/login'>
           <Menu.Item name='Login' />
         </Link>

@@ -22,7 +22,7 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
-            <AuthRoute exact path='/profile' component={Profile} />
+            <ProtectedRoute exact path='/profile' component={Profile} />
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>
