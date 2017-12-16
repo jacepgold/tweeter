@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Form, Button, Segment } from 'semantic-ui-react';
+import { Header, Container, Form, Button, Segment } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { registerUser } from '../actions/auth';
 import { setFlash } from '../actions/flash';
@@ -29,44 +29,46 @@ class Register extends Component {
 
     return (
       <Segment basic>
-        <Header as='h1' textAlign='center'>Register Component</Header>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Field>
-            <label htmlFor='email'>Email</label>
-            <input
-              id='email'
-              placeholder='Email'
-              required
-              value={email}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor='password'>Password</label>
-            <input
-              id='password'
-              placeholder='Password'
-              type='password'
-              required
-              value={password}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <label htmlFor='passwordConfirmation'>Password Confirmation</label>
-            <input
-              id='passwordConfirmation'
-              placeholder='Password Confirmation'
-              type='password'
-              required
-              value={passwordConfirmation}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Segment basic textAlign='center'>
-            <Button type='submit'>Submit</Button>
-          </Segment>
-        </Form>
+        <Container>
+          <Header as='h1' textAlign='center'>Register Component</Header>
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Field>
+              <label htmlFor='email'>Email</label>
+              <input
+                id='email'
+                placeholder='Email'
+                required
+                value={email}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor='password'>Password</label>
+              <input
+                id='password'
+                placeholder='Password'
+                type='password'
+                required
+                value={password}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <label htmlFor='passwordConfirmation'>Password Confirmation</label>
+              <input
+                id='passwordConfirmation'
+                placeholder='Password Confirmation'
+                type='password'
+                required
+                value={passwordConfirmation}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Segment basic textAlign='center'>
+              <Button type='submit'>Submit</Button>
+            </Segment>
+          </Form>
+        </Container>
       </Segment>
     );
   }

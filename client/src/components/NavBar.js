@@ -5,6 +5,14 @@ import { connect } from 'react-redux';
 import { handleLogout } from '../actions/auth';
 import Login from './Login'
 
+const navRightStyles = {
+  backgroundColor: 'lightblue',
+}
+
+const navLeftStyles = {
+  backgroundColor: 'lightblue',
+}
+
 class NavBar extends Component {
 
   rightNavs = () => {
@@ -12,7 +20,7 @@ class NavBar extends Component {
 
     if (user.id) {
       return (
-        <Menu.Menu position='right'>
+        <Menu.Menu position='right' style={ navRightStyles }>
           <Link to='/newtweet'>
             <Menu.Item name='Compose Tweet' />
           </Link>
@@ -21,28 +29,27 @@ class NavBar extends Component {
           </Link>
           <Dropdown text='My Profile' pointing className='link item'>
             <Dropdown.Menu>
-            <Dropdown.Item><Link to={`/EditProfile/${user.id}`}>Edit Profile</Link></Dropdown.Item>
+              <Dropdown.Item><Link to={'/profile'}>My Profile</Link></Dropdown.Item>
+              <Dropdown.Item><Link to={`/EditProfile/${user.id}`}>Edit Profile</Link></Dropdown.Item>
           </Dropdown.Menu>
           </Dropdown>
           <Menu.Item
             name='Logout'
             onClick={() => dispatch(handleLogout(history))}
           />
-
         </Menu.Menu>
 
       );
     }
     return (
-      <Menu.Menu position='right'>
+      <Menu.Menu position='right' style={ navRightStyles }>
         <Link to='/register'>
           <Menu.Item name='Register' />
         </Link>
-
         <Link to='/login'>
           <Menu.Item name='Login' />
         </Link>
-        </Menu.Menu>
+      </Menu.Menu>
     );
   }
 
@@ -50,10 +57,10 @@ class NavBar extends Component {
     const { user } = this.props;
     if (user.id) {
       return(
-        <div>
+        <div style={ navLeftStyles }>
           <Menu pointing secondary>
             <Link to='/'>
-              <Menu.Item name='tweeter' />
+              <Menu.Item name='Tweeter' />
             </Link>
             <Link to='/profile'>
               <Menu.Item name='Account name here' />
@@ -64,10 +71,10 @@ class NavBar extends Component {
       );
     } else {
       return(
-        <div>
+        <div style={ navLeftStyles }>
           <Menu pointing secondary>
             <Link to='/'>
-              <Menu.Item name='tweeter' />
+              <Menu.Item name='Tweeter' />
             </Link>
             {this.rightNavs()}
           </Menu>
@@ -77,19 +84,32 @@ class NavBar extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <Menu pointing secondary>
-          <Link to='/'>
-            <Menu.Item name='tweeter' />
-          </Link>
-          <Link to='/profile'>
-            <Menu.Item name='Your Profile' />
-          </Link>
-          { this.rightNavs() }
-        </Menu>
-      </div>
-    );
+    if (this.props.user.id) {     
+      return( 
+        <div>
+          <Menu pointing secondary>
+            <Link to='/'>
+              <Menu.Item name='Tweeter' />
+            </Link>
+            <Link to='/profile'>
+              <Menu.Item name='Your Profile' />
+            </Link>
+            { this.rightNavs() }
+          </Menu>
+        </div>
+      )
+    } else {
+      return (
+        <div>
+          <Menu pointing secondary>
+            <Link to='/'>
+              <Menu.Item name='Tweeter' />
+            </Link>
+            { this.rightNavs() }
+          </Menu>
+        </div>
+      );
+    }
   }
 }
 
