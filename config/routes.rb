@@ -8,7 +8,9 @@ Rails.application.routes.draw do
     resources :posts do
       resources :comments 
     end
+    resources :posts
   end
+
 
   #Do not place any routes below this one
   get '*other', to: 'static#index'

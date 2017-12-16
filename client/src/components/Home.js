@@ -2,17 +2,28 @@ import React, { Component } from 'react';
 import { Header, List, Segment } from 'semantic-ui-react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import { withRouter, Link } from 'react-router-dom';
 
 
 class Home extends Component {
   state = { posts: []}
 
   componentDidMount() {
-    axios.get(`/api/users/:user_id/posts`)
+    axios.get(`/api/users/${this.props.user.id}/posts`)
     .then(res => {
-      console.log(res.data)
+      this.setState({ posts: res.data})
     })
   }
+
+  showPost = () => {
+    return this.state.posts.map( post =>
+      <List.Item>
+        {post.content}
+      </List.Item>
+    )
+
+  }
+
   render() {
     const { posts } = this.state;
     return (
@@ -21,11 +32,15 @@ class Home extends Component {
           Tweeter Feed
         </Header>
         <List>
-          {posts}
+          {this.showPost()}
         </List>
       </Segment>
     );
   }
 }
 
-export default connect()(Home);
+const mapStateToProps = state => {
+  return { user: state.user}
+}
+
+export default withRouter(connect(mapStateToProps)(Home));
