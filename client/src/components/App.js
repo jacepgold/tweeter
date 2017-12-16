@@ -6,6 +6,8 @@ import Register from './Register';
 import Flash from './Flash';
 import Home from './Home';
 import Profile from './Profile'
+import Newtweet from './Newtweet'
+import Mytweets from './Mytweets'
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
@@ -23,6 +25,8 @@ class App extends Component {
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
             <ProtectedRoute exact path='/profile' component={Profile} />
+            <ProtectedRoute exact path='/newtweet' component={Newtweet} />
+            <ProtectedRoute exact path='/mytweets' component={Mytweets} />
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>

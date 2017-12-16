@@ -21,8 +21,16 @@ class NavBar extends Component {
               <Dropdown.Item><Link to="/profile">My Profile</Link></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <Link to='/newtweet'>
+            <Menu.Item name='Newtweet' />
+          </Link>
+          <Link to='/mytweets'>
+          <Menu.Item name='my tweets' />
+          </Link>
+
 
         </Menu.Menu>
+
       );
     }
     return (
