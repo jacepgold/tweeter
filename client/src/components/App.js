@@ -6,10 +6,12 @@ import Register from './Register';
 import Flash from './Flash';
 import Home from './Home';
 import Profile from './Profile'
+import Newtweet from './Newtweet'
+import Mytweets from './Mytweets'
+import EditProfile from './EditProfile';
 import ProtectedRoute from './ProtectedRoute';
 import AuthRoute from './AuthRoute';
 import FetchUser from './FetchUser';
-import EditProfile from './EditProfile';
 import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {

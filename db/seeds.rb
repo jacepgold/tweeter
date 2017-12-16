@@ -1,9 +1,25 @@
-50.times def
+@user_id = 0
+
+5.times do 
   User.create(
-    usr_name
-    name: Faker::Twitter.user,
-    nickname: Faker::Twitter.screen_name,
-    image: Faker::Twitter.status(include_photo: true)
-    email: Faker::Twitter.screen_name + '@test.com'
+    email: "fake#{@user_id}@fake.com",
+    password: 'password'
   )
-end
+  1.times do
+    @user_id += 1
+    Bio.create(
+      image: 'img1',
+      description: Faker::Lorem.paragraph(2),
+      user_id: @user_id
+      )
+  end
+  5.times do
+    Post.create(
+      content: Faker::Lorem.paragraph(4),
+      user_id: @user_id
+    )
+  end 
+end 
+
+
+puts 'users created'
