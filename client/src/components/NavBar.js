@@ -13,17 +13,17 @@ class NavBar extends Component {
     if (user.id) {
       return (
         <Menu.Menu position='right'>
-          <Dropdown text='My Profile' pointing className='link item'>
-            <Dropdown.Menu>
-              <Dropdown.Item><Link to={`/EditProfile/${user.id}`}>Edit Profile</Link></Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
           <Link to='/newtweet'>
-            <Menu.Item name='Newtweet' />
+            <Menu.Item name='Compose Tweet' />
           </Link>
           <Link to='/mytweets'>
-          <Menu.Item name='my tweets' />
+          <Menu.Item name='My Tweets' />
           </Link>
+          <Dropdown text='My Profile' pointing className='link item'>
+            <Dropdown.Menu>
+            <Dropdown.Item><Link to={`/EditProfile/${user.id}`}>Edit Profile</Link></Dropdown.Item>
+          </Dropdown.Menu>
+          </Dropdown>
           <Menu.Item
             name='Logout'
             onClick={() => dispatch(handleLogout(history))}
@@ -84,7 +84,7 @@ class NavBar extends Component {
             <Menu.Item name='tweeter' />
           </Link>
           <Link to='/profile'>
-            <Menu.Item name='Your profile' />
+            <Menu.Item name='Your Profile' />
           </Link>
           { this.rightNavs() }
         </Menu>
