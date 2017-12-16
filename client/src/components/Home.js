@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, List, Segment } from 'semantic-ui-react';
+import { Header, List, Segment, Card, Image, Button } from 'semantic-ui-react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
@@ -9,21 +9,35 @@ class Home extends Component {
 
   componentDidMount() {
     axios.get(`/api/users/:user_id/posts`)
-    .then(res => {
-      console.log(res.data)
-    })
+      .then(res => {
+        console.log(res.data)
+      }).catch( err => {
+        console.log(err)
+    });
   }
+
   render() {
     const { posts } = this.state;
+    
+
+    
     return (
-      <Segment basic>
-        <Header as='h1' textAlign='center'>
-          Tweeter Feed
-        </Header>
-        <List>
-          {posts}
-        </List>
-      </Segment>
+      <Card.Group>
+        <Card>
+          <Card.Content>
+            <Image floated='right' size='mini' src='https://react.semantic-ui.com/assets/images/avatar/large/molly.png' />
+            <Card.Header>
+              Name - {  }
+            </Card.Header>
+            <Card.Meta>
+              Date - {}
+            </Card.Meta>
+            <Card.Description>
+              Text - {this.state.posts.content}
+            </Card.Description>
+          </Card.Content>
+        </Card>
+      </Card.Group>
     );
   }
 }
