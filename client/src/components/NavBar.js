@@ -14,7 +14,7 @@ class NavBar extends Component {
         <Menu.Menu position='right'>
           <Dropdown text='My Profile' pointing className='link item'>
             <Dropdown.Menu>
-              <Dropdown.Item><Link to="/EditProfile">Edit Profile</Link></Dropdown.Item>
+              <Dropdown.Item><Link to="/profile/edit">Edit Profile</Link></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Menu.Item
