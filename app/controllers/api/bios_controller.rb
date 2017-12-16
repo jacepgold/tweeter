@@ -46,6 +46,6 @@ class Api::ProductsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def bio_params
-      params.require(:bio).permit(:name, :description, :price, :department)
+      params.require(:bio).permit(:image, :description)
     end
 end

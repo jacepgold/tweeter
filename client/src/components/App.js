@@ -19,10 +19,10 @@ class App extends Component {
         <Flash />
         <FetchUser>
           <Switch>
-            <Route exact path='/' component={Home} />
+            <ProtectedRoute exact path='/' component={Home} />
+            <ProtectedRoute exact path='/profile' component={Profile} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
-            <AuthRoute exact path='/profile' component={Profile} />
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>
