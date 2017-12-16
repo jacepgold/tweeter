@@ -7,7 +7,7 @@ export const getTweets = (user) => {
         const data = res.data
         dispatch({ type: 'TWEETS', tweets: data })
       }
-      )
+    )
   }
 }
 
@@ -18,6 +18,6 @@ export const postTweets = (user, tweet) => {
         const data = res.data
         dispatch({ type: 'ADD_TWEET', tweet: data })
       }
-      )
+    )
   }
 }

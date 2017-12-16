@@ -17,19 +17,23 @@ import { Switch, Route } from 'react-router-dom';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div >
         <NavBar />
         <Flash />
         <FetchUser>
           <Switch>
-            <ProtectedRoute exact path='/' component={Home} />
+            <Route exact path='/' component={Home} />
             <ProtectedRoute exact path='/profile' component={Profile} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
+<<<<<<< HEAD
             <ProtectedRoute exact path='/profile' component={Profile} />
             <ProtectedRoute exact path='/newtweet' component={Newtweet} />
             <ProtectedRoute exact path='/mytweets' component={MyTweets} />
             <ProtectedRoute path='/profile/edit' component={EditProfile} />
+=======
+            <ProtectedRoute exact path='/EditProfile/:id' component={EditProfile} />
+>>>>>>> master
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>
