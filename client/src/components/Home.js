@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, List, Segment, Card, Image, Button } from 'semantic-ui-react';
+import { Header, List, Segment, Card, Image, Button, Grid } from 'semantic-ui-react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { withRouter, Link } from 'react-router-dom';
@@ -29,8 +29,8 @@ class Home extends Component {
     const { posts } = this.state;
 
     return (
-      <Segment>
-        <Header as="h1">News Feed</Header>
+      <Segment basic>
+        <Header as="h1" textAlign='center'>Tweeter Feed</Header>
         <Card.Group>
           <Card>
             <Card.Content>
