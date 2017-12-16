@@ -10,4 +10,6 @@ class Api::CommentsController < ApplicationController
 
   def destroy
   end
+
+  private
 end
