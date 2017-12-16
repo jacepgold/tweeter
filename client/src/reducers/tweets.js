@@ -1,7 +1,7 @@
-const tweet = ( state = [], action ) => {
+const tweets = ( state = [], action ) => {
   switch(action.type) {
     case 'TWEETS':
-      return action.todos
+      return action.tweets
     case 'ADD_TWEET':
       return [action.tweet, ...state];
     default:
@@ -9,4 +9,4 @@ const tweet = ( state = [], action ) => {
   }
 }
 
-export default tweet;
+export default tweets;
