@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Header } from 'semantic-ui-react';
 import { postTweets } from '../actions/tweets'
+import { Header, Segment, Container, Button, Checkbox, Form } from 'semantic-ui-react'
 
 class Newtweet extends Component {
  // let input;
@@ -22,12 +22,15 @@ class Newtweet extends Component {
 render() {
 
   return (
-    <div>
-      <h3>Add A Tweet</h3>
-      <form onSubmit={ this.handleSubmit }>
-        <input value={this.state.tweet} onChange={this.handleChange} />
-      </form>
-    </div>
+    <Segment>
+      <Container>
+        <Header as="h1" center>Compose A Tweet</Header>
+        <Form onSubmit={ this.handleSubmit }>
+          <input value={ this.state.tweet } onChange={ this.handleChange } placeholder='Tweet' />
+          <Button type="submit">Tweet!</Button>
+        </Form>
+      </Container>
+    </Segment>
   )
 }
 }
