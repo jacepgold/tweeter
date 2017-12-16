@@ -17,21 +17,17 @@ class Home extends Component {
     })
   }
 
-  showPost = () => {
-    return this.state.posts.map( post =>
-      <Card.Description>
-        {post.content}
-      </Card.Description>
-    )
-  }
-
   render() {
     const { posts } = this.state;
 
     return (
       <Segment basic>
         <Header as="h1" textAlign='center'>Tweeter Feed</Header>
+        <Grid>
+          <Grid.Row>
+          <Grid.Column width={8}>
         <Card.Group>
+          { this.state.posts.map( post =>
           <Card>
             <Card.Content>
               <Image floated='right' size='mini' src='https://react.semantic-ui.com/assets/images/avatar/large/molly.png' />
@@ -41,10 +37,16 @@ class Home extends Component {
               <Card.Meta>
                 Date - {  }
               </Card.Meta>
-                {this.showPost()}
+              <Card.Description>
+                {post.content}
+              </Card.Description>
             </Card.Content>
           </Card>
+          )}
         </Card.Group>
+        </Grid.Column>
+        </Grid.Row>
+        </Grid>
       </Segment>
     );
   }
