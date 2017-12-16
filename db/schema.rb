@@ -10,11 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171216163356) do
+=======
+ActiveRecord::Schema.define(version: 20171216165820) do
+>>>>>>> Add models and controllers
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
+=======
+  create_table "bios", force: :cascade do |t|
+    t.string "image"
+    t.text "description"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bios_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "message"
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+>>>>>>> Add models and controllers
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
@@ -44,4 +78,11 @@ ActiveRecord::Schema.define(version: 20171216163356) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+<<<<<<< HEAD
+=======
+  add_foreign_key "bios", "users"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
+  add_foreign_key "posts", "users"
+>>>>>>> Add models and controllers
 end
