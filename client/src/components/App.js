@@ -22,14 +22,11 @@ class App extends Component {
         <Flash />
         <FetchUser>
           <Switch>
-            <ProtectedRoute exact path='/' component={Home} />
+            <Route exact path='/' component={Home} />
             <ProtectedRoute exact path='/profile' component={Profile} />
             <AuthRoute exact path='/login' component={Login} />
             <AuthRoute exact path='/register' component={Register} />
-            <ProtectedRoute exact path='/profile' component={Profile} />
-            <ProtectedRoute exact path='/newtweet' component={Newtweet} />
-            <ProtectedRoute exact path='/mytweets' component={Mytweets} />
-            <ProtectedRoute path='/profile/edit' component={EditProfile} />
+            <ProtectedRoute exact path='/EditProfile/:id' component={EditProfile} />
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>
