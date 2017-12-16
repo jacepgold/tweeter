@@ -30,7 +30,7 @@ class Home extends Component {
 
     return (
       <Segment>
-        <Header as="h1">News Feed</Header>
+        <Header as="h1">Tweeter Feed</Header>
         <Card.Group>
           <Card>
             <Card.Content>
