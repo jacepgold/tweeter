@@ -11,16 +11,16 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
-    @comment = @posts.comments.new(comment_params)
-    if @comment.save
-      render json: @comment, status: :created
+    comment = @posts.comments.new(comment_params)
+    if comment.save
+      render json: comment, status: :created
     else
-      render json: @comment.errors, status: :unprocessible_entity
+      render json: comment.errors, status: :unprocessible_entity
     end 
   end 
 
   def update
-    if @comment.update(comment_params)
+    if @comments.update(comment_params)
       render json: @comment
     else 
       render json: @comment.errors, status: :unprocessible_entity
@@ -33,17 +33,15 @@ class Api::CommentsController < ApplicationController
 
   private
 
-  def set_post 
-    @posts = Post.find(params[:post_id])
-  end 
+    def set_post 
+      @posts = Post.find(params[:post_id])
+    end 
 
+    def set_comments
+      @comments = Comment.find(params[:id])
+    end 
 
-  def set_comments
-    @comments = Comment.find(params[:id])
-  end 
-
-  def comment_params
-    params.require(:comment).permit(:message)
-  end 
-
+    def comment_params
+      params.require(:comment).permit(:message)
+    end 
 end
