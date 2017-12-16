@@ -10,17 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20171216163356) do
-=======
 ActiveRecord::Schema.define(version: 20171216165820) do
->>>>>>> Add models and controllers
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
-=======
   create_table "bios", force: :cascade do |t|
     t.string "image"
     t.text "description"
@@ -48,7 +42,6 @@ ActiveRecord::Schema.define(version: 20171216165820) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
->>>>>>> Add models and controllers
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
@@ -78,11 +71,8 @@ ActiveRecord::Schema.define(version: 20171216165820) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-<<<<<<< HEAD
-=======
   add_foreign_key "bios", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "posts", "users"
->>>>>>> Add models and controllers
 end
