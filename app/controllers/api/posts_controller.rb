@@ -3,20 +3,19 @@ class Api::PostsController < ApplicationController
   before_action :set_post, only: [:show, :update, :destroy]
   
   def index
-    render json: Post.all
+    render json: @user.posts.all
   end
 
   def show
-    render json: @post
+    render json: @posts
   end
 
   def create
-    @post = Post.new(post_params)
-
+    post = @user.posts.new(post_params)
     if @post.save
-      render json: @post, status: :create
+      render json: post, status: :create
     else 
-      render json: @post.errors, status: :unprocessable_entity
+      render json: post.errors, status: :unprocessable_entity
     end
   end
 
@@ -39,5 +38,9 @@ class Api::PostsController < ApplicationController
 
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def set_user
+      @user = User.find(params[:user_id])
     end
 end
