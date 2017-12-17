@@ -7,6 +7,12 @@ const rootReducer = combineReducers({
   user,
   flash,
   tweets
+import bio from './bio';
+
+const rootReducer = combineReducers({
+  user,
+  bio,
+  flash
 });
 
 export default rootReducer;

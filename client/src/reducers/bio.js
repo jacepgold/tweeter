@@ -1,12 +1,10 @@
 const bio = (state = {}, action) => {
     switch (action.type) {
-      case :
-        return action.user;
-      case :
-        return {};
+      case 'GET_BIO':
+        return action.bio
       default:
         return state;
     }
   };
   
-  export default bio;
+export default bio;
