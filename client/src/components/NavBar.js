@@ -78,7 +78,6 @@ class NavBar extends Component {
 
   render() {
     return (
-<<<<<<< HEAD
       <div>
         <Menu pointing secondary>
           <Link to='/'>
@@ -91,10 +90,6 @@ class NavBar extends Component {
         </Menu>
       </div>
     );
-=======
-      this.leftNavs()
-    )
->>>>>>> master
   }
 }
 
